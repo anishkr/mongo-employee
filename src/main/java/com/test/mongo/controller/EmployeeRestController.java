@@ -25,10 +25,11 @@ public class EmployeeRestController {
     }
 
     @GetMapping("/{version}/employee/{id}")
-    public ResponseEntity<?> getEmployeeByID(@PathVariable("id") String id) {
-        return new ResponseEntity<>(Optional
-                .ofNullable(employeeService.getEmployeeById("id"))
-                .orElseThrow(() -> new RuntimeException("Data not found")), HttpStatus.OK);
+    public ResponseEntity<?> getEmployeeByID(@PathVariable("id") String id) throws Throwable {
+        Optional<Employee> response = employeeService.getEmployeeById(id);
+        if(response.isPresent())
+            return new ResponseEntity<>(response.get(), HttpStatus.OK);
+        else
+            return new ResponseEntity<>("Data not found", HttpStatus.OK);
     }
-
 }

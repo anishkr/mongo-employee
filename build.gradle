@@ -16,10 +16,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
-
-	implementation group: 'cz.jirutka.spring', name: 'embedmongo-spring', version: '1.1'
-
 }
 
 test {
